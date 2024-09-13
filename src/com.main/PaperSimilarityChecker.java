@@ -1,3 +1,5 @@
+package com.main;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +8,6 @@ import java.util.*;
 
 public class PaperSimilarityChecker {
 
-    private static final String DELIMITERS = "，。；！？”“：、";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -68,7 +69,7 @@ public class PaperSimilarityChecker {
             String segment = entry.getKey();
             int count1 = entry.getValue();
             //保存两文段的最大匹配数，以便合理统计重复率
-            int countMax = 0,tem=0;
+            int countMax = 0,tem;
 
             // 这里简化处理，只考虑文段之间的最大重复度
             for (Map.Entry<String, Integer> entry2 : segments2.entrySet()) {
@@ -82,7 +83,9 @@ public class PaperSimilarityChecker {
         }
 
         // 防止除以零
-        if (totalSegments == 0) return 0;
+        if (totalSegments == 0) {
+            return 0;
+        }
         //计算论文重复度
         return totalSimilarity / totalSegments;
     }
@@ -108,7 +111,7 @@ public class PaperSimilarityChecker {
         }
         for (int i = 0; i < child.length(); i++) {
             if (set.contains(child.charAt(i))) {
-                count++;
+                count+=1;
             }
         }
         return count;						  //结果输出
