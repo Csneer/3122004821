@@ -111,10 +111,10 @@ public class PaperSimilarityChecker {
         }
         for (int i = 0; i < child.length(); i++) {
             if (set.contains(child.charAt(i))) {
-                count+=1;
+                count++;
             }
         }
-        return count;						  //结果输出
+        return count;
     }
 
 }
